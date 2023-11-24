@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Sidenav from './components/Sidenav';
+import Overview from './pages/Overview';
+import AddQuestions from './pages/AddQuestions';
+import EditQuestions from './pages/EditQuestions';
+import GeneratePaper from './pages/GeneratePaper';
+import Questions from './pages/Questions';
+import AddMarks from './pages/AddMarks';
+import AddCourse from './pages/AddCourse';
+import './App.css'
+import DeleteQuestions from './pages/DeleteQuestions';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Signup/>} />
+        <Route path='dashboard' element={<Sidenav/>}>
+          <Route index element={<Overview/>}/>
+          <Route path='course' element={<AddCourse/>}/>
+          <Route path='add' element={<AddQuestions/>}/>
+          <Route path='delete' element={<DeleteQuestions/>}/>
+          <Route path='edit' element={<EditQuestions/>}/>
+          <Route path='view' element={<Questions/>}/>
+          <Route path='generate' element={<GeneratePaper/>}/>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
