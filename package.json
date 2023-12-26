@@ -9,19 +9,32 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
+    "axios": "^1.6.2",
+    "env-cmd": "^10.1.0",
+    "html-to-pdfmake": "^2.5.1",
+    "jspdf": "^2.5.1",
+    "npm-watch": "^0.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.19.0",
     "react-scripts": "5.0.1",
-    "realm": "^12.3.1"
+    "react-to-print": "^2.14.15",
+    "realm": "^12.3.1",
+    "uuid": "^9.0.1"
   },
   "scripts": {
-    "start": "electron .",
-    "build": "craco build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "estart": "react-scripts start",
     "eject": "react-scripts eject",
-    "electron-dev": "electron ."
+    "electron-dev": "electron .",
+    "build": "craco build",
+    "build:web": "craco build",
+    "build:electron": "env-cmd -f .env.electron craco build",
+    "watch:electron": "npm-watch",
+    "test": "craco test",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +56,7 @@
   },
   "devDependencies": {
     "electron": "^27.1.0",
+    "electron-builder": "^24.6.4",
     "tailwindcss": "^3.3.5",
     "webpack-node-externals": "^3.0.0"
   }

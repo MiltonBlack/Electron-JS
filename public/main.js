@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -6,8 +7,8 @@ function createWindow() {
         height:800,
         maxHeight:1024,
         maxWidth: 900,
-        title:'Automated Question Randomizer',
-        backgroundColor:'#7B435B',
+        title:'Automated Multi-Choice Question Generator',
+        // backgroundColor:'#7B435B',
         // frame:false,
         webPreferences:{
             nodeIntegration: true,
@@ -16,9 +17,11 @@ function createWindow() {
     })
 
     win.removeMenu();
-    win.loadURL('http://localhost:3000');
-
-    win.webContents.openDevTools();
+    // win.loadURL('http://localhost:3000');
+    // console.log(__dirname);
+    console.log(path.join(__dirname, "../build/index.html"));
+    win.loadFile(path.join(__dirname, "../build/index.html"))
+    // win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);

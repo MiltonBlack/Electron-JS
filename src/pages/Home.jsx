@@ -19,7 +19,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <span className='uppercase font-thin text-sm'>By: Milton Azibapu</span>
+      <span className='uppercase font-thin text-sm'>By: Odidia Ipigansi</span>
     </div>
   )
 }
